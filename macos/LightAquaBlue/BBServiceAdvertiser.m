@@ -113,7 +113,7 @@ static NSDictionary *fileTransferProfileDict;
 							  withName:(NSString *)serviceName
 								  UUID:(NSString *)uuid
 							 channelID:(BluetoothRFCOMMChannelID *)outChannelID
-				   serviceRecordHandle:(BluetoothSDPServiceRecordHandle *)outServiceRecordHandle
+				   		 serviceRecord:(IOBluetoothSDPServiceRecord *)serviceRecord
 {
 	if (dict == nil)
 		return kIOReturnError;
@@ -150,15 +150,12 @@ static NSDictionary *fileTransferProfileDict;
 }
 
 
-+ (IOReturn)removeService:(BluetoothSDPServiceRecordHandle)handle
++ (IOReturn)removeService:(IOBluetoothSDPServiceRecord *)serviceRecord
 {
-	// TODO: We should switch to using [IOBluetoothSDPServiceRecord removeServiceRecord]
-    // but we don't know how to get an IOBluetoothSDPServiceRecord instance from a handle.
-	// but we don't know how to get an IOBluetoothSDPServiceRecord instance from a handle.
-	IOReturn ret = IOBluetoothRemoveServiceWithRecordHandle(handle);
-	//printf("* removeService(%p), ret=0x%lx,  (kIOReturnNoDevice=0x%lx)\n", (void*)handle, ret, kIOReturnNoDevice);
-	if(ret == kIOReturnNoDevice) ret=kIOReturnSuccess;
-	return ret;
+	IOReturn status = [service_record removeServiceRecord];
+    service_record = nil;
+	
+	return status;
 }
 
 @end
