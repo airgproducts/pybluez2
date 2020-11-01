@@ -73,6 +73,6 @@
 /*
  * Stop advertising a service.
  */
-+ (IOReturn)removeService:(BluetoothSDPServiceRecord)serviceRecord;
++ (IOReturn)removeService:(IOBluetoothSDPServiceRecord *)serviceRecord;
 
 @end
