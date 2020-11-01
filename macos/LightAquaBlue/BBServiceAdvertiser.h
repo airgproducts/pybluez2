@@ -67,7 +67,7 @@
 							  withName:(NSString *)serviceName
 								  UUID:(NSString *)uuid
 							 channelID:(BluetoothRFCOMMChannelID *)outChannelID
-				   		 serviceRecord:(BluetoothSDPServiceRecord *)serviceRecord;
+				   		 serviceRecord:(IOBluetoothSDPServiceRecord *)serviceRecord;
 
 
 /*

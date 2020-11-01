@@ -130,7 +130,7 @@ static NSDictionary *fileTransferProfileDict;
 										withUUID:uuidBlutooth];
 
 	// publish the service
-	IOBluetoothSDPServiceRecord *serviceRecord;
+	//IOBluetoothSDPServiceRecord *serviceRecord;
     serviceRecord = [IOBluetoothSDPServiceRecord publishedServiceRecordWithDictionary:sdpEntries];
 	[uuid_ autorelease];
 
@@ -138,9 +138,6 @@ static NSDictionary *fileTransferProfileDict;
 	if (serviceRecord != nil) {
 		// get service channel ID & service record handle
 		status = [serviceRecord getRFCOMMChannelID:outChannelID];
-		if (status == kIOReturnSuccess) {
-			status = [serviceRecord getServiceRecordHandle:outServiceRecordHandle];
-		}
 
 		// cleanup
         [serviceRecord release];
@@ -152,8 +149,8 @@ static NSDictionary *fileTransferProfileDict;
 
 + (IOReturn)removeService:(IOBluetoothSDPServiceRecord *)serviceRecord
 {
-	IOReturn status = [service_record removeServiceRecord];
-    service_record = nil;
+	IOReturn status = [serviceRecord removeServiceRecord];
+    serviceRecord = nil;
 	
 	return status;
 }
