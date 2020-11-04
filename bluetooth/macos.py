@@ -14,8 +14,7 @@ def discover_devices(duration=8, flush_cache=True, lookup_names=False,
     ret = list()
     for device in devices:
         item = [device[btAddresIndex], ]
-        if lookup_names:
-            item.append(device[namesIndex])
+        item.append(device[namesIndex])
         if lookup_class:
             item.append(device[classIndex])
 
