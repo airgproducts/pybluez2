@@ -3,7 +3,8 @@ import time
 import logging
 
 import objc
-from Foundation import NSObject, IOBluetoothDeviceInquiry
+from Foundation import NSObject
+from . import IOBluetooth
 
 from bluetooth.device import Device
 from bluetooth.macos.loop import Loop
@@ -52,7 +53,7 @@ class DeviceInquiryDelegate(NSObject):
     # NSObject init
     def init(self, create_loop=True):
         self = super().init()
-        self._inquiry = IOBluetoothDeviceInquiry.inquiryWithDelegate_(self)
+        self._inquiry = IOBluetooth.IOBluetoothDeviceInquiry.inquiryWithDelegate_(self)
         self.set_updatenames(False)
 
         self.running = False
