@@ -1,4 +1,4 @@
-import bluetooth.macos.discovery as discovery
+from bluetooth.macos import discovery as discovery
 #from bluetooth.macos.btsocket import BluetoothSocket
 
 from bluetooth.btcommon import *
