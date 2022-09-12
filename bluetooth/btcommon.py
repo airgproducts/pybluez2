@@ -9,7 +9,7 @@ import binascii
 
 class Protocols(enum.Enum):
     L2CAP = 10
-    RFCOMM = 3
+    RFCOMM = 11 
     OBEX = 12
 
 
