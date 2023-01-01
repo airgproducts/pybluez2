@@ -8,7 +8,7 @@ protocols =  {
 }
 
 if not sys.platform.startswith("win"):
-    protocols[Protocols.L2CAP] = socket.BTPROTO_L2CAP,
+    protocols[Protocols.L2CAP] = socket.BTPROTO_L2CAP
 
 
 class BluetoothSocket(socket.socket):
